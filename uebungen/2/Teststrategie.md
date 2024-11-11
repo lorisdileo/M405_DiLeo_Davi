@@ -1,14 +1,22 @@
+# Lösungen für die Übungen zur Verkaufssoftware
+
 ## Übung 1: Testfälle zur Verkaufssoftware
 
 ### Teststrategie
-Gemäß der Theorie ist eine klare Teststrategie erforderlich. Dazu erstellen wir **funktionale** und **nicht-funktionale Testfälle** für die Rabattregeln der Verkaufssoftware:
+Gemäß der Theorie ist eine klare Teststrategie erforderlich. Dazu erstellen wir **funktionale** und **nicht-funktionale Testfälle** für die Rabattregeln der Verkaufssoftware.
 
-#### Funktionale Testfälle
-Die Funktionalität der Rabattregelung wird geprüft. Es gibt:
-- **Abstrakte Testfälle**: Beschreiben die Regeln allgemein.
-- **Konkrete Testfälle**: Geben genaue Werte und erwartete Ergebnisse an.
+### Abstrakte Testfälle
+Hier verwenden wir logische Operatoren, um die Rabattregelungen allgemein zu beschreiben:
 
-#### Funktionale Testfälle für Rabattregeln
+| Testfall | Kaufpreis-Bereich             | Erwarteter Rabatt (%) |
+|----------|--------------------------------|------------------------|
+| 1        | Kaufpreis < 15'000             | 0                      |
+| 2        | 15'000 ≤ Kaufpreis < 20'000    | 5                      |
+| 3        | 20'000 ≤ Kaufpreis < 25'000    | 7                      |
+| 4        | Kaufpreis ≥ 25'000             | 8.5                    |
+
+### Konkrete Testfälle
+In dieser Tabelle werden konkrete Werte eingesetzt, um die abstrakten Regeln zu überprüfen:
 
 | Testfall | Kaufpreis (CHF) | Erwarteter Rabatt (%) | Erwarteter Endpreis (CHF) |
 |----------|------------------|-----------------------|---------------------------|
@@ -20,36 +28,23 @@ Die Funktionalität der Rabattregelung wird geprüft. Es gibt:
 | 6        | 25'000           | 8.5                   | 22'875                    |
 | 7        | 30'000           | 8.5                   | 27'450                    |
 
-#### Nicht-funktionale Testfälle
-1. **Leistungstest**: Testen, wie gut die Software viele Rabattberechnungen in kurzer Zeit verarbeitet.
-2. **Usability-Test**: Überprüfen, ob die Benutzeroberfläche für die Rabattregelung verständlich und benutzerfreundlich ist.
-3. **Sicherheitstest**: Sicherstellen, dass unberechtigte Benutzer die Rabattregeln nicht ändern können.
-
 ---
 
-## Übung 2: Abstrakte und Konkrete Testfälle
+# Lösung für Übung 2: Funktionale Black-Box-Tests für die Webseite luxuscar.ch
 
-### Theorie zu abstrakten und konkreten Testfällen
-- **Abstrakte Testfälle**: Geben eine allgemeine Beschreibung des Testziels, aber keine genauen Werte.
-- **Konkrete Testfälle**: Basieren auf den abstrakten Fällen, enthalten jedoch spezifische Werte und erwartete Ergebnisse.
+| ID  | Testfallbeschreibung                                                             | Erwartetes Ergebnis                                                                                       |
+|-----|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| 1   | **Navigation zur Startseite**: Aufrufen der URL `https://www.luxuscar.ch/`       | Die Startseite wird korrekt geladen und angezeigt.                                                        |
+| 2   | **Fahrzeugübersicht anzeigen**: Klick auf den Menüpunkt "Autos"                  | Eine Liste aller verfügbaren Luxusfahrzeuge wird angezeigt.                                               |
+| 3   | **Fahrzeugdetails einsehen**: Auswahl eines spezifischen Fahrzeugs aus der Liste | Detaillierte Informationen zum ausgewählten Fahrzeug werden angezeigt, einschließlich Bilder und Spezifikationen. |
+| 4   | **Kontaktformular nutzen**: Aufrufen der Kontaktseite und Ausfüllen des Formulars| Das Kontaktformular wird erfolgreich versendet, und eine Bestätigungsmeldung erscheint.                   |
+| 5   | **AGB einsehen**: Klick auf den Menüpunkt "AGB"                                  | Die Seite mit den Allgemeinen Geschäftsbedingungen wird korrekt angezeigt.                                |
+| 6   | **Telefonischer Kontakt**: Nutzung der angegebenen Telefonnummer                 | Die angegebene Telefonnummer ist erreichbar, und Anfragen werden professionell bearbeitet.                |
+| 7   | **Social-Media-Links prüfen**: Klick auf die Social-Media-Icons                  | Die entsprechenden Social-Media-Seiten von Luxuscar werden in einem neuen Tab geöffnet.                   |
+| 8   | **Responsive Design testen**: Zugriff auf die Webseite über ein mobiles Gerät    | Die Webseite passt sich dem kleineren Bildschirm an und bleibt benutzerfreundlich.                        |
+| 9   | **Seitenladezeit messen**: Aufrufen der Startseite                               | Die Seite lädt innerhalb von 3 Sekunden vollständig.                                                      |
+| 10  | **Fehlerseiten-Handling**: Aufrufen einer nicht existierenden Seite (z.B. `/xyz`)| Eine benutzerfreundliche 404-Fehlerseite wird angezeigt.                                                  |
 
-### Anwendung der Theorie
-Wir erstellen aus den Rabattregelungen der Verkaufssoftware sowohl abstrakte als auch konkrete Testfälle.
-
-#### Abstrakte Testfälle
-1. **Kein Rabatt**, wenn der Kaufpreis unter 15'000 CHF liegt.
-2. **5% Rabatt** für Kaufpreise bis zu 20'000 CHF.
-3. **7% Rabatt** für Kaufpreise unter 25'000 CHF.
-4. **8,5% Rabatt** für Kaufpreise ab 25'000 CHF.
-
-#### Konkrete Testfälle
-
-| Testfall | Kaufpreis (CHF) | Erwarteter Rabatt (%) | Erwarteter Endpreis (CHF) |
-|----------|------------------|-----------------------|---------------------------|
-| 1        | 14'999           | 0                     | 14'999                    |
-| 2        | 17'500           | 5                     | 16'625                    |
-| 3        | 22'500           | 7                     | 20'925                    |
-| 4        | 26'000           | 8.5                   | 23'790                    |
 
 ---
 
@@ -73,3 +68,6 @@ Hier testen wir die korrekte Umsetzung der Rabattregeln.
 2. **Usability-Test**: Überprüft, ob Verkäufer die Rabattregeln einfach verstehen und anwenden können.
 3. **Sicherheitstest**: Stellt sicher, dass nur berechtigte Benutzer auf die Rabattkonfiguration zugreifen und diese ändern können.
 
+---
+
+Dies deckt die Anforderungen der Übungen 1 bis 3 ab, wobei die Theorie auf die konkreten Testfälle angewendet wurde.

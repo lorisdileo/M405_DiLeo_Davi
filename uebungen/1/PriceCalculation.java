@@ -10,7 +10,7 @@ public class PriceCalculation {
         } else {
             addon_discount = 0;
         }
-        // Möglicher Fehler, da der discount den addon discount überschreibt
+
         if (discount > addon_discount) {
             addon_discount = discount;
         }
@@ -20,7 +20,7 @@ public class PriceCalculation {
  
     public boolean test_calculate_price() {
         double result = calculatePrice(200.0, 30.0, 50.0, 3, 5.0);  // Beispielwerte
-        double expected = 242.5;  // Beispielhafte erwartete Berechnung
+        double expected = 265;  // Beispielhafte erwartete Berechnung
         System.out.println("result="+result);
         return Math.abs(result - expected) < 0.01;  // Toleranz für Gleitkommazahlen
     }

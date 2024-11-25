@@ -5,6 +5,8 @@ import java.io.IOException;
  * @author Thomas Trüb
  * @version 1.0
  */
+
+/*
 public class Main {
     public static void main(String[] args) throws IOException {
 
@@ -32,8 +34,12 @@ public class Main {
     }
 }
 
+
+
 enum Currency {
     USD,
     EUR,
     CHF
 }
+
+*/

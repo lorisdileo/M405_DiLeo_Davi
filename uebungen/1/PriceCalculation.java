@@ -25,9 +25,10 @@ public class PriceCalculation {
         return Math.abs(result - expected) < 0.01;  // Toleranz für Gleitkommazahlen
     }
  
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         PriceCalculation calc = new PriceCalculation();
         boolean testResult = calc.test_calculate_price();
         System.out.println("Test erfolgreich: " + testResult);
     }
+    */
 }

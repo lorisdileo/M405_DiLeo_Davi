@@ -1,5 +1,10 @@
-import okhttp3.*;
+package ch.tbz.bank.software;
+
 import com.google.gson.Gson;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ExchangeRateOkhttp {
 
@@ -22,7 +27,7 @@ public class ExchangeRateOkhttp {
                 .url("https://api.apilayer.com/exchangerates_data/convert?to="+currencyTo+"&from="+currencyFrom+"&amount=1")
                 .addHeader("apikey", "aZA8SRPPWKe8RCu4fLT9dGtgAUfkwVfS")
                 .method("GET", null)
-            .build();
+                .build();
 
         try{
             Response response = client.newCall(request).execute();

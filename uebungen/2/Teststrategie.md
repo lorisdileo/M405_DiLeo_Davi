@@ -50,24 +50,55 @@ In dieser Tabelle werden konkrete Werte eingesetzt, um die abstrakten Regeln zu 
 
 ## Übung 3: Funktionale und Nicht-funktionale Testfälle
 
-### Theorie zu funktionalen und nicht-funktionalen Testfällen
-- **Funktionale Testfälle**: Prüfen die Funktionsweise der Software gemäß den Spezifikationen.
-- **Nicht-funktionale Testfälle**: Prüfen andere Aspekte wie Leistung, Benutzerfreundlichkeit und Sicherheit.
+### Analyse des Bankprojekts
 
-### Funktionale Testfälle für die Rabattsoftware
-Hier testen wir die korrekte Umsetzung der Rabattregeln.
+#### Mögliche Black-Box Testfälle
+Diese basieren auf Benutzeraktionen und stellen sicher, dass das System wie erwartet funktioniert, ohne den Code direkt zu betrachten.
 
-| Testfall | Kaufpreis (CHF) | Erwarteter Rabatt (%) | Erwarteter Endpreis (CHF) |
-|----------|------------------|-----------------------|---------------------------|
-| 1        | 15'000           | 5                     | 14'250                    |
-| 2        | 20'000           | 7                     | 18'600                    |
-| 3        | 25'000           | 8.5                   | 22'875                    |
+Bei der Eingabe ist es unübersichtlich, da nicht klar hervorgehoben wird, dass man auch eine Zahl eingeben kann. Dies könnte durch eine klarere Benutzerführung verbessert werden, beispielsweise durch eine explizite Information im Menü, die darauf hinweist, dass neben den Buchstabenoptionen auch Kontonummern eingegeben werden können.
 
-### Nicht-funktionale Testfälle für die Rabattsoftware
-1. **Leistungstest**: Prüft die Reaktionszeit, wenn die Software mehrere Rabattberechnungen in kurzer Zeit durchführt.
-2. **Usability-Test**: Überprüft, ob Verkäufer die Rabattregeln einfach verstehen und anwenden können.
-3. **Sicherheitstest**: Stellt sicher, dass nur berechtigte Benutzer auf die Rabattkonfiguration zugreifen und diese ändern können.
+**Kontenerstellung**
+- Erstelle ein Konto mit einem gültigen Namen, einer Währung und einem Startguthaben.
+- Teste ungültige Eingaben (z. B. leere Namen, unbekannte Währungen).
+
+**Wechselkursabfrage**
+- Abfrage des Wechselkurses zwischen zwei unterstützten Währungen.
+- Teste ungültige oder nicht unterstützte Währungen.
+
+**Benutzerinteraktion**
+- Navigiere durch das Menü und prüfe die Reaktion auf jede Option.
+- Teste ungültige Eingaben (z. B. Buchstaben, die nicht vorgesehen sind).
 
 ---
 
-Dies deckt die Anforderungen der Übungen 1 bis 3 ab, wobei die Theorie auf die konkreten Testfälle angewendet wurde.
+#### Mögliche White-Box Testfälle
+
+**`Account`-Klasse**
+- Teste `withdraw()` und `deposit()`-Methoden auf korrekte Berechnungen.
+- Teste `pseudoDeleteAccount()`, um sicherzustellen, dass alle Felder korrekt zurückgesetzt werden.
+
+**`Bank`-Klasse**
+- Teste `createAccount()` und `deleteAccount()`, um sicherzustellen, dass Konten korrekt hinzugefügt und entfernt werden.
+- Teste `getAccount(int nr)`, um sicherzustellen, dass Konten basierend auf der ID korrekt abgerufen werden.
+
+**`Counter`-Klasse**
+- Teste `chooseAccount()` und prüfe, ob Benutzeraktionen korrekt verarbeitet werden.
+- Teste `transferAmount()` auf korrekte Berechnungen bei Wechselkursen.
+
+**`ExchangeRateOkhttp`**
+- Teste `getExchangeRate()`, um sicherzustellen, dass die API-Abfrage korrekt funktioniert.
+- Simuliere Fehler wie ungültige Antworten oder Netzwerkfehler.
+
+---
+
+#### Code-Verbesserungen und Best Practices
+
+**Fehlerbehandlung**
+- Ersetze `System.out.println` durch ein konsistentes Logging-System.
+- Füge robustere Fehlerbehandlungen hinzu, insbesondere bei der API-Abfrage in `ExchangeRateOkhttp`.
+
+**Modularisierung**
+- Zerlege die großen Methoden in kleinere, besser lesbare Methoden. Zum Beispiel in der `Counter`-Klasse.
+
+**API-Key-Schutz**
+- Der API-Key in `ExchangeRateOkhttp` sollte nicht im Code hinterlegt sein. Verwende Umgebungsvariablen oder eine sichere Konfiguration.

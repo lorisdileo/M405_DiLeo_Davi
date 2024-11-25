@@ -1,3 +1,5 @@
+package ch.tbz.bank.software;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -115,11 +117,11 @@ public class Counter {
                 case "e" -> {
                     deposit(acc);
                     acc.printBalance();
-                    }
+                }
                 case "a" -> {
                     withdraw(acc);
                     acc.printBalance();
-                    }
+                }
                 case "k" -> acc.printBalance();
                 case "ü" -> transfer(acc);
                 case "q" -> {
@@ -130,7 +132,7 @@ public class Counter {
                 case "l" -> {
                     // = start over loop in main
                     if (getConfirmation()) {
-                            bank.deleteAccount(acc);
+                        bank.deleteAccount(acc);
                     }
                     else {
                         System.out.println("! Aktion abgebrochen.");
@@ -376,3 +378,4 @@ public class Counter {
     }
 
 }
+

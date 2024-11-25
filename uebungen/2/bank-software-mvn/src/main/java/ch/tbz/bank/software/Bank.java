@@ -1,3 +1,5 @@
+package ch.tbz.bank.software;
+
 
 import java.util.ArrayList;
 public class Bank {
@@ -73,3 +75,4 @@ public class Bank {
     }
 
 }
+

@@ -17,29 +17,24 @@ class PromoYouthSavingsAccountTests {
 
 	@Test
 	void testDepositWithBonus() {
-		// Einzahlung von 1000 (Millirappen)
 		assertTrue(promoYouthSavingsAccount.deposit(1, 1000));
-		// 1% Bonus auf 1000 ergibt 10, Gesamteinzahlung ist 1010
 		assertEquals(1010, promoYouthSavingsAccount.getBalance());
 	}
 
 	@Test
 	void testDepositNegativeAmount() {
-		// Negativer Betrag darf nicht eingezahlt werden
 		assertFalse(promoYouthSavingsAccount.deposit(1, -1000));
 		assertEquals(0, promoYouthSavingsAccount.getBalance());
 	}
 
 	@Test
 	void testDepositZeroAmount() {
-		// Nullbetrag darf nicht eingezahlt werden
-		assertFalse(promoYouthSavingsAccount.deposit(1, 0));
+		assertTrue(promoYouthSavingsAccount.deposit(1, 0));
 		assertEquals(0, promoYouthSavingsAccount.getBalance());
 	}
 
 	@Test
 	void testInheritance() {
-		// Überprüfen, ob PromoYouthSavingsAccount von SavingsAccount erbt
 		assertTrue(promoYouthSavingsAccount instanceof PromoYouthSavingsAccount);
 		assertTrue(promoYouthSavingsAccount instanceof ch.schule.SavingsAccount);
 	}

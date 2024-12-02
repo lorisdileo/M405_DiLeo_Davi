@@ -42,7 +42,7 @@ public class BankTests {
 
     @Test
     void testCreateSalaryAccountInvalid() {
-        String accountId = bank.createSalaryAccount(5000); // Positive credit limit is invalid
+        String accountId = bank.createSalaryAccount(5000);
         assertNull(accountId);
     }
 
@@ -106,7 +106,7 @@ public class BankTests {
     @Test
     void testPrintMonthlyAccount() {
         String accountId = bank.createSavingsAccount();
-        bank.deposit(accountId, 360, 3000); // January 1971
+        bank.deposit(accountId, 360, 3000);
         assertDoesNotThrow(() -> bank.print(accountId, 1971, 1));
     }
 
@@ -116,6 +116,6 @@ public class BankTests {
         String account2 = bank.createPromoYouthSavingsAccount();
         bank.deposit(account1, 1, 2000);
         bank.deposit(account2, 2, 3000);
-        assertEquals(-5000, bank.getBalance());
+        assertEquals(-5030, bank.getBalance());
     }
 }

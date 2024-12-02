@@ -11,7 +11,6 @@ class AccountTests {
 
     private Account account;
 
-    // Testklasse für Account, da Account abstract ist
     static class TestAccount extends Account {
         public TestAccount(String id) {
             super(id);
@@ -64,10 +63,10 @@ class AccountTests {
 
     @Test
     void testCanTransact() {
-        assertTrue(account.canTransact(1)); // Keine Buchungen vorhanden
+        assertTrue(account.canTransact(1));
         account.deposit(1, 1000);
-        assertFalse(account.canTransact(0)); // Datum vor der letzten Buchung
-        assertTrue(account.canTransact(2)); // Datum nach der letzten Buchung
+        assertFalse(account.canTransact(0));
+        assertTrue(account.canTransact(2));
     }
 
     @Test
@@ -81,10 +80,9 @@ class AccountTests {
 
     @Test
     void testMonthlyPrint() {
-        account.deposit(360, 1000); // Januar 1971
-        account.withdraw(390, 500); // Februar 1971
+        account.deposit(360, 1000);
+        account.withdraw(390, 500);
 
-        // Aufruf der Methode mit year und month als Parameter
         assertDoesNotThrow(() -> account.print(1971, 1));
         assertDoesNotThrow(() -> account.print(1971, 2));
     }

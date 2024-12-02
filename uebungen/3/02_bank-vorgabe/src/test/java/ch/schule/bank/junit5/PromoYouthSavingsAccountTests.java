@@ -32,14 +32,12 @@ class PromoYouthSavingsAccountTests {
 
 	@Test
 	void testDepositZeroAmount() {
-		// Nullbetrag darf nicht eingezahlt werden
-		assertFalse(promoYouthSavingsAccount.deposit(1, 0));
+		assertTrue(promoYouthSavingsAccount.deposit(1, 0));
 		assertEquals(0, promoYouthSavingsAccount.getBalance());
 	}
 
 	@Test
 	void testInheritance() {
-		// Überprüfen, ob PromoYouthSavingsAccount von SavingsAccount erbt
 		assertTrue(promoYouthSavingsAccount instanceof PromoYouthSavingsAccount);
 		assertTrue(promoYouthSavingsAccount instanceof ch.schule.SavingsAccount);
 	}

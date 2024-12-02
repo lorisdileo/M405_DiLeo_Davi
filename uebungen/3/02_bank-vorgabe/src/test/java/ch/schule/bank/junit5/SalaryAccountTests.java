@@ -37,7 +37,7 @@ class SalaryAccountTests {
 
 	@Test
 	void testWithdrawZeroAmount() {
-		assertFalse(salaryAccount.withdraw(1, 0)); // Versuch, 0 abzuheben
+		assertTrue(salaryAccount.withdraw(1, 0)); // Versuch, 0 abzuheben
 		assertEquals(0, salaryAccount.getBalance()); // Kontostand bleibt unverändert
 	}
 

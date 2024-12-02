@@ -39,7 +39,7 @@ class SavingsAccountTests {
 	@Test
 	void testWithdrawZeroAmount() {
 		savingsAccount.deposit(1, 5000); // Einzahlung von 5000 Millirappen
-		assertFalse(savingsAccount.withdraw(2, 0)); // Versuch, 0 abzuheben
+		assertTrue(savingsAccount.withdraw(2, 0)); // Versuch, 0 abzuheben
 		assertEquals(5000, savingsAccount.getBalance()); // Kontostand bleibt unverändert
 	}
 

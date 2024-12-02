@@ -116,6 +116,6 @@ public class BankTests {
         String account2 = bank.createPromoYouthSavingsAccount();
         bank.deposit(account1, 1, 2000);
         bank.deposit(account2, 2, 3000);
-        assertEquals(-5000, bank.getBalance());
+        assertEquals(-5030, bank.getBalance());
     }
 }

@@ -12,7 +12,7 @@ class BookingTests {
 
 	@BeforeEach
 	void setUp() {
-		booking = new Booking(1000, 5000); // Beispielwerte: Datum 1000 (Banktage), Betrag 5000 (Millirappen)
+		booking = new Booking(1000, 5000);
 	}
 
 	@Test
@@ -27,13 +27,11 @@ class BookingTests {
 
 	@Test
 	void testPrint() {
-		// Da `print` auf die Konsole ausgibt, prüfen wir, dass keine Ausnahme auftritt
 		assertDoesNotThrow(() -> booking.print(10000)); // Balance: 10000 Millirappen
 	}
 
 	@Test
 	void testConstructor() {
-		// Teste, dass der Konstruktor die Werte korrekt setzt
 		Booking newBooking = new Booking(2000, -3000);
 		assertEquals(2000, newBooking.getDate());
 		assertEquals(-3000, newBooking.getAmount());

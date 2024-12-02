@@ -17,41 +17,41 @@ class SavingsAccountTests {
 
 	@Test
 	void testWithdrawSufficientBalance() {
-		savingsAccount.deposit(1, 5000); // Einzahlung von 5000 Millirappen
-		assertTrue(savingsAccount.withdraw(2, 3000)); // Abheben von 3000
-		assertEquals(2000, savingsAccount.getBalance()); // Neuer Kontostand: 2000
+		savingsAccount.deposit(1, 5000);
+		assertTrue(savingsAccount.withdraw(2, 3000));
+		assertEquals(2000, savingsAccount.getBalance());
 	}
 
 	@Test
 	void testWithdrawInsufficientBalance() {
-		savingsAccount.deposit(1, 2000); // Einzahlung von 2000 Millirappen
-		assertFalse(savingsAccount.withdraw(2, 3000)); // Versuch, 3000 abzuheben
-		assertEquals(2000, savingsAccount.getBalance()); // Kontostand bleibt bei 2000
+		savingsAccount.deposit(1, 2000);
+		assertFalse(savingsAccount.withdraw(2, 3000));
+		assertEquals(2000, savingsAccount.getBalance());
 	}
 
 	@Test
 	void testWithdrawNegativeAmount() {
-		savingsAccount.deposit(1, 5000); // Einzahlung von 5000 Millirappen
-		assertFalse(savingsAccount.withdraw(2, -1000)); // Versuch, negativen Betrag abzuheben
-		assertEquals(5000, savingsAccount.getBalance()); // Kontostand bleibt unverändert
+		savingsAccount.deposit(1, 5000);
+		assertFalse(savingsAccount.withdraw(2, -1000));
+		assertEquals(5000, savingsAccount.getBalance());
 	}
 
 	@Test
 	void testWithdrawZeroAmount() {
-		savingsAccount.deposit(1, 5000); // Einzahlung von 5000 Millirappen
-		assertTrue(savingsAccount.withdraw(2, 0)); // Versuch, 0 abzuheben
-		assertEquals(5000, savingsAccount.getBalance()); // Kontostand bleibt unverändert
+		savingsAccount.deposit(1, 5000);
+		assertTrue(savingsAccount.withdraw(2, 0));
+		assertEquals(5000, savingsAccount.getBalance());
 	}
 
 	@Test
 	void testDeposit() {
-		assertTrue(savingsAccount.deposit(1, 3000)); // Einzahlung von 3000 Millirappen
-		assertEquals(3000, savingsAccount.getBalance()); // Neuer Kontostand: 3000
+		assertTrue(savingsAccount.deposit(1, 3000));
+		assertEquals(3000, savingsAccount.getBalance());
 	}
 
 	@Test
 	void testInheritance() {
-		assertTrue(savingsAccount instanceof SavingsAccount); // Sicherstellen, dass es ein SavingsAccount ist
-		assertTrue(savingsAccount instanceof ch.schule.Account); // Sicherstellen, dass es von Account erbt
+		assertTrue(savingsAccount instanceof SavingsAccount);
+		assertTrue(savingsAccount instanceof ch.schule.Account);
 	}
 }

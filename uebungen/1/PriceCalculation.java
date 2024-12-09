@@ -9,6 +9,7 @@ public class PriceCalculation {
             addon_discount = 10;
         } else {
             addon_discount = 0;
+            
         }
 
         if (discount > addon_discount) {

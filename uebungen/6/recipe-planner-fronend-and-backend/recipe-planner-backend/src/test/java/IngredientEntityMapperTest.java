@@ -17,23 +17,19 @@ class IngredientEntityMapperTest {
 
     @BeforeEach
     void setUp() {
-        // Mapper-Instanz erstellen
         ingredientEntityMapper = Mappers.getMapper(IngredientEntityMapper.class);
     }
 
     @Test
     void testEntityToDomain() {
-        // Arrange
         UUID id = UUID.randomUUID();
         IngredientEntity ingredientEntity = new IngredientEntity();
         ingredientEntity.setId(id);
         ingredientEntity.setName("Tomato");
         ingredientEntity.setAmount(3);
 
-        // Act
         Ingredient ingredient = ingredientEntityMapper.entityToDomain(ingredientEntity);
 
-        // Assert
         assertEquals(ingredientEntity.getId(), ingredient.getId());
         assertEquals(ingredientEntity.getName(), ingredient.getName());
         assertEquals(ingredientEntity.getAmount(), ingredient.getAmount());
@@ -41,17 +37,14 @@ class IngredientEntityMapperTest {
 
     @Test
     void testDomainToEntity() {
-        // Arrange
         UUID id = UUID.randomUUID();
         Ingredient ingredient = new Ingredient();
         ingredient.setId(id);
         ingredient.setName("Tomato");
         ingredient.setAmount(3);
 
-        // Act
         IngredientEntity ingredientEntity = ingredientEntityMapper.domainToEntity(ingredient);
 
-        // Assert
         assertEquals(ingredient.getId(), ingredientEntity.getId());
         assertEquals(ingredient.getName(), ingredientEntity.getName());
         assertEquals(ingredient.getAmount(), ingredientEntity.getAmount());
@@ -59,7 +52,6 @@ class IngredientEntityMapperTest {
 
     @Test
     void testEntitiesToDomains() {
-        // Arrange
         UUID id1 = UUID.randomUUID();
         UUID id2 = UUID.randomUUID();
 
@@ -75,10 +67,9 @@ class IngredientEntityMapperTest {
 
         List<IngredientEntity> ingredientEntities = Arrays.asList(ingredientEntity1, ingredientEntity2);
 
-        // Act
         List<Ingredient> ingredients = ingredientEntityMapper.entitiesToDomains(ingredientEntities);
 
-        // Assert
+
         assertEquals(ingredientEntities.size(), ingredients.size());
         assertEquals(ingredientEntities.get(0).getId(), ingredients.get(0).getId());
         assertEquals(ingredientEntities.get(1).getName(), ingredients.get(1).getName());
@@ -86,7 +77,6 @@ class IngredientEntityMapperTest {
 
     @Test
     void testDomainsToEntities() {
-        // Arrange
         UUID id1 = UUID.randomUUID();
         UUID id2 = UUID.randomUUID();
 
@@ -102,10 +92,8 @@ class IngredientEntityMapperTest {
 
         List<Ingredient> ingredients = Arrays.asList(ingredient1, ingredient2);
 
-        // Act
         List<IngredientEntity> ingredientEntities = ingredientEntityMapper.domainsToEntities(ingredients);
 
-        // Assert
         assertEquals(ingredients.size(), ingredientEntities.size());
         assertEquals(ingredients.get(0).getId(), ingredientEntities.get(0).getId());
         assertEquals(ingredients.get(1).getAmount(), ingredientEntities.get(1).getAmount());

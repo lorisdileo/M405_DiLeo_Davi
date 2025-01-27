@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Optional, aber meistens empfohlen
+package-lock.json
+yarn.lock
+
+# VSCode settings
+.vscode/
+
+# Weitere temporäre Dateien
+*.swp
+*.swo

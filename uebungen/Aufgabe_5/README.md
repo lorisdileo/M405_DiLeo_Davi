@@ -25,3 +25,22 @@ Cypress Tests
     "name": "Max Muster",
     "email": "max.muster@example.com"
   }
+
+
+## Bonus Aufgabe
+
+## Feature-Beschreibung
+
+### Frontend
+- **Eingabefeld**: Für die Eingabe der Benutzer-ID, die gelöscht werden soll.
+- **Button**: "Delete", um die Löschaktion auszuführen.
+- **Validierungen**:
+  - Die ID muss größer als 0 sein.
+  - Zeigt eine Bestätigung oder Fehlermeldung basierend auf der Serverantwort.
+
+### Backend
+- **Endpoint**:
+  - `DELETE /students/{id}`: Löscht einen Benutzer basierend auf der übergebenen ID.
+- **Validierung**:
+  - Prüft, ob die Benutzer-ID existiert.
+  - Gibt eine Fehlermeldung zurück, wenn kein Benutzer mit der ID gefunden wird.

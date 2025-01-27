@@ -26,4 +26,13 @@ public class StudentController {
         studentRepository.save(user);
     }
 
+    @DeleteMapping("/students/{id}")
+    public void deleteStudent(@PathVariable Long id) {
+        if (studentRepository.existsById(id)) {
+            studentRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Student mit ID " + id + " nicht gefunden.");
+        }
+    }
+
 }

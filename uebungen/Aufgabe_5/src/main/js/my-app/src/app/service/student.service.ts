@@ -19,4 +19,8 @@ export class StudentService {
   public save(student: Student) {
     return this.http.post<Student>(this.studentUrl, student);
   }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.studentUrl}/${id}`);
+  }
 }

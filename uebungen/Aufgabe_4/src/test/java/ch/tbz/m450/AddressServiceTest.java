@@ -41,14 +41,14 @@ class AddressServiceTest {
     void testGetAll() {
         Address address1 = new Address(1, "Alice", "Smith", "123456", new Date());
         Address address2 = new Address(2, "Bob", "Brown", "789012", new Date());
-        List<Address> mockAddresses = Arrays.asList(address2, address1); // Unsorted list
+        List<Address> mockAddresses = Arrays.asList(address2, address1);
         when(addressRepository.findAll()).thenReturn(mockAddresses);
 
         List<Address> addresses = addressService.getAll();
 
         assertNotNull(addresses);
         assertEquals(2, addresses.size());
-        assertEquals("Bob", addresses.get(0).getFirstname()); // Ensure sorting
+        assertEquals("Bob", addresses.get(0).getFirstname());
         verify(addressRepository, times(1)).findAll();
     }
 

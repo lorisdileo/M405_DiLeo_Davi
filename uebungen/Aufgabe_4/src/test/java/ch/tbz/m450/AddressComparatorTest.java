@@ -17,7 +17,8 @@ class AddressComparatorTest {
         AddressComparator comparator = new AddressComparator();
 
         int result = comparator.compare(a1, a2);
-        assertEquals(-17, result); // "Brown" comes before "Smith"
+        System.out.println(result);
+        assertEquals(-17, result);
     }
 
     @Test
@@ -27,7 +28,7 @@ class AddressComparatorTest {
         AddressComparator comparator = new AddressComparator();
 
         int result = comparator.compare(a1, a2);
-        assertEquals(-1, result); // "Alice" comes before "Bob"
+        assertEquals(-1, result);
     }
 
     @Test
@@ -37,7 +38,7 @@ class AddressComparatorTest {
         AddressComparator comparator = new AddressComparator();
 
         int result = comparator.compare(a1, a2);
-        assertEquals(-8, result); // "123456789" comes before "987654321"
+        assertEquals(-8, result);
     }
 
     @Test
@@ -47,7 +48,7 @@ class AddressComparatorTest {
         AddressComparator comparator = new AddressComparator();
 
         int result = comparator.compare(a1, a2);
-        assertEquals(-1, result); // Earlier date comes first
+        assertEquals(-1, result);
     }
 
     @Test
@@ -58,6 +59,6 @@ class AddressComparatorTest {
         AddressComparator comparator = new AddressComparator();
 
         int result = comparator.compare(a1, a2);
-        assertEquals(0, result); // Both addresses are considered equal
+        assertEquals(0, result);
     }
 }
